@@ -121,6 +121,15 @@
             <!--  Last Name -->
             <button onclick="searchByLastName()"> SearchLanme </button>
             <input type="text" id="inpLname" placeholder="First Name" value="">
+
+            <select onchange="searchByDep()" id="inpDep">
+                <option>Chooes Department</option>
+                <option value="Production">Production</option>
+                <option value="Quality">Quality</option>
+                <option value="Maintenance">Maintenance</option>
+            </select>
+
+
             <br>
 
             <div id="content" id="table-container">
