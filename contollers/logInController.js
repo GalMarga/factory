@@ -21,9 +21,9 @@ router.post('/', bodyParser.urlencoded({ extended: false }),async (req, res) => 
         
         res.redirect('/deshboard');
     } else {
+   
         res.redirect('/');
     
-     
     }
   
 });
