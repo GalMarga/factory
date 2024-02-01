@@ -72,27 +72,18 @@ async function getData() {
         tr.append( tdName, tdManager, tdActions);
         tbl.append(tr);
 
-        axios.get(`http://localhost:3000/employees?departmentID=${item._id}`)
-        .then(function (response) {
-          let employees = response.data;
-          employees.forEach(employee => { 
-            if (employee.name === "Production") {
-              console.log("Yes");
-            } else {
-              console.log("no");
-            }
-
-          })
-
-
-          // if (employees.length > 0) {
-          //  console.log(employees.departmentID == "Production");
-          // } else {
-          //   deleteBtn.disabled = true; // Disable delete button
-          // }
-
-   
-        });
+        // axios.get(`http://localhost:3000/employees`)
+        // .then(function (response) {
+        //   let employees = response.data;
+        //   let hasProduction = employees.some(employee => employee.departmentID === "Production");
+        //   if (hasProduction) {
+        //     console.log("Yes");
+        //     deleteBtn.disabled = true;
+        //   }
+        // })
+        // .catch(function (error) {
+        //   console.log(error);
+        // });
 
         
       });
