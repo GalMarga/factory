@@ -12,10 +12,10 @@ async function getData() {
       let tbl = document.getElementById("tbl");
       tbl.innerText = ""; // reset 
 // Create th
-      let tdId = document.createElement("th");
-      tdId.classList.add("th");
-      let tdDepID = document.createElement("th");
-      tdDepID.classList.add("th");
+      // let tdId = document.createElement("th");
+      // tdId.classList.add("th");
+      // let tdDepID = document.createElement("th");
+      // tdDepID.classList.add("th");
       let tdName = document.createElement("th");
       tdName.classList.add("th");
       let tdManager = document.createElement("th");
@@ -24,8 +24,8 @@ async function getData() {
       tdActions.classList.add("th");
       
 //name tr
-      tdId.innerText = "ID";
-      tdDepID.innerText = "Department ID";
+      // tdId.innerText = "ID";
+      // tdDepID.innerText = "Department ID";
       tdName.innerText = "Name";
       tdManager.innerText = "Manager";
       tdActions.innerText = "Actions"
@@ -33,21 +33,21 @@ async function getData() {
 
 // input the all new tr to "let" and put it in append (multi)
       let trTitles = document.createElement("tr");
-      trTitles.append(tdId, tdDepID, tdName, tdManager,tdActions);
+      trTitles.append(tdName, tdManager,tdActions);
 
       tbl.appendChild(trTitles);
 // data for each
       data.forEach(item => {
         // create for evey emp new td
-        let tdId = document.createElement("td");
-        let tdDepID = document.createElement("td");
+        // let tdId = document.createElement("td");
+        // let tdDepID = document.createElement("td");
         let tdName = document.createElement("td");
         let tdManager = document.createElement("td");
         let tdActions = document.createElement("td");
         
 //put the value 
-        tdId.innerText = item._id
-        tdDepID.innerText = item.idDep;
+        // tdId.innerText = item._id
+        // tdDepID.innerText = item.idDep;
         tdName.innerText = item.name;
         tdManager.innerText = item.Manager;
 //Create BTN
@@ -81,7 +81,7 @@ async function getData() {
         tdActions.append(editBtn, deleteBtn);
 
         let tr = document.createElement("tr");
-        tr.append(tdId, tdDepID, tdName, tdManager, tdActions);
+        tr.append( tdName, tdManager, tdActions);
 
         tbl.append(tr);
       });
