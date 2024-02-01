@@ -64,10 +64,12 @@ async function getData() {
         tdDep.innerText = item.departmentID;
 //Create BTN
         let editBtn = document.createElement("button");
+        
         editBtn.innerText = "Edit";
-        editBtn.onclick = function () {
-          window.location.href = `/editemp/`;
-        }
+     editBtn.onclick = function () {
+  let idForEdit = item._id;
+  window.location.href = `/editemp?id=${idForEdit}`;
+}
         //
         let addShiftBtn = document.createElement('button')
         addShiftBtn.innerText = 'Add Shift'

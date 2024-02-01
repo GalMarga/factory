@@ -102,7 +102,7 @@
                     Edit Employees
                 </h2>
             </div>
-            <form id="myForm" action="/employees" method="PUT">
+            <form id="myForm" action="/employees/:_id" method="PUT">
 
                 <!-- emp -->
 
@@ -135,7 +135,7 @@
                 </div>
                 <div>
 
-                    <button onclick="" type="submit">Update</button>
+                    <button id="updateBtn" type="submit">Update</button>
 
                 </div>
             </form>
@@ -154,30 +154,12 @@
             </p>
         </div>
     </footer>
-    <!-- Scripts -->
-    <script>
-
-        // function redirectToPage() {
-        //     alert("click")
-        //     console.log("click Add")
-        // }
-
-    </script>
 
 
-    <!-- Scripts -->
     <div>
         <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-        <!-- Scripts Axios End -->
-
-
-        <script src="js/jquery-3.4.1.min.js"></script>
-        <script src="js/bootstrap.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
-        </script>
-        <script src="js/custom.js"></script>
 
     </div>
 </body>
