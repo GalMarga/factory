@@ -1,0 +1,34 @@
+app.get('/dashboard', (req,res)=> {
+    res.render('dashboard');
+   
+})
+
+//Res Render Page
+app.get('/employees', (req,res)=> {
+  res.render('employees');
+})
+app.get('/departments', (req,res)=> {
+  res.render('departments');
+})
+app.get('/shifts', (req,res)=> {
+  res.render('shifts');
+});
+
+//Post  Redirect btn dash -> pagses 
+app.post('/dashboard', (req, res) => {
+  const selectedPage = req.body.page;
+
+  switch (selectedPage) {
+    case 'employees':
+      res.redirect('/employees');
+      break;
+    case 'departments':
+      res.redirect('/departments');
+      break;
+    case 'Shifts':
+      res.redirect('/Shifts'); // Ensure this route exists
+      break;
+    default:
+      res.redirect('/');
+  }
+});
