@@ -1,6 +1,21 @@
 // showAllDep.js
 const rul = 'http://localhost:3000/department';
 
+
+axios.get(`http://localhost:3000/employees`)
+.then(function (response) {
+  let employeesData = response.data;
+  let departmentIDs = [];
+
+  employeesData.forEach(function (employee) {
+    departmentIDs.push(employee.departmentID);
+  });
+
+  console.log('departmentIDs:', departmentIDs);
+})
+
+
+
 async function getData() {
   axios.get(rul)
     .then(function (response) {
@@ -40,6 +55,7 @@ async function getData() {
 //put the value 
         
         tdName.innerText = item.name;
+        console.log('item.name;: ', item.name);
         tdManager.innerText = item.Manager;
 
 //Create BTN
@@ -49,9 +65,13 @@ async function getData() {
           window.location.href = '/editemp';
         }
 
+        
+    
+
         let deleteBtn = document.createElement("button");
         deleteBtn.innerText = "Delete";
-
+        // deleteBtn.disabled = true;
+    
       
 // function axios delete Emp
         deleteBtn.addEventListener("click", () => {
@@ -71,20 +91,6 @@ async function getData() {
         let tr = document.createElement("tr");
         tr.append( tdName, tdManager, tdActions);
         tbl.append(tr);
-
-        // axios.get(`http://localhost:3000/employees`)
-        // .then(function (response) {
-        //   let employees = response.data;
-        //   let hasProduction = employees.some(employee => employee.departmentID === "Production");
-        //   if (hasProduction) {
-        //     console.log("Yes");
-        //     deleteBtn.disabled = true;
-        //   }
-        // })
-        // .catch(function (error) {
-        //   console.log(error);
-        // });
-
         
       });
     })
