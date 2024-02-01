@@ -47,6 +47,8 @@ async function getData() {
       tbl.appendChild(trTitles);
 // data for each
       data.forEach(item => {
+
+        
         // create for evey emp new td
         let tdId = document.createElement("td");
         let tdFullName = document.createElement("td");
