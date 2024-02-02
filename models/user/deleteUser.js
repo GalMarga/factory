@@ -14,8 +14,18 @@ async function deleteAllUser() {
       const data = response.data
       console.log('data: ', data._id);
     })
-    
     })
-})
+})};
 
- }
+
+ async function printAllUser() {
+
+  axios.get(`http://localhost:3000/user`)
+.then(function (response) {
+    const data = response.data
+    console.log('Users: ', data);
+    })
+  }
+
+ 
+

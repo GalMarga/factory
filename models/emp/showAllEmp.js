@@ -15,26 +15,21 @@ async function getData() {
       let tbl = document.getElementById("tbl");
       tbl.innerText = ""; // reset 
 // Create th
-      // let tdId = document.createElement("th");
-      // tdId.classList.add("th");
       let tdFullName = document.createElement("th");
       tdFullName.classList.add("th");
       let tdLastName = document.createElement("th");
       tdLastName.classList.add("th");
       let tdStartYear = document.createElement("th");
       tdStartYear.classList.add("th");
-
       let tdDep = document.createElement("th");
       tdDep.classList.add("th");
-
       let tdShifts = document.createElement("th");
       tdShifts.classList.add("th");
-
       let tdActions = document.createElement("th");
       tdActions.classList.add("th");
-      
+
 //name tr
-      // tdId.innerText = "ID";
+
       tdFullName.innerText = "First Name";
       tdLastName.innerText = "Last Name";
       tdStartYear.innerText = "Start Year";
@@ -42,16 +37,14 @@ async function getData() {
       tdShifts.innerText = "Shifts";
       tdActions.innerText = "Actions"
    
-
 // input the all new tr to "let" and put it in append (multi)
       let trTitles = document.createElement("tr");
       trTitles.append(tdFullName, tdLastName, tdStartYear, tdDep, tdShifts , tdActions);
-
       tbl.appendChild(trTitles);
-// data for each
-      data.forEach(item => {
 
-        
+// data for each
+
+      data.forEach(item => {
         // create for evey emp new td
         let tdId = document.createElement("td");
         let tdFullName = document.createElement("td");
@@ -82,7 +75,8 @@ async function getData() {
         let deleteBtn = document.createElement("button");
         deleteBtn.innerText = "Delete";
 
-        // Test
+        
+
         // axios.get(`http://localhost:3000/user`)
         // .then(function (response) {
         //   const userIdEmp = response.data;
@@ -95,8 +89,6 @@ async function getData() {
       
 // function axios delete Emp
         deleteBtn.addEventListener("click", () => {
-
-        
 
           axios.delete(`http://localhost:3000/employees/${item._id}`)
             .then(function (response) {
@@ -562,7 +554,7 @@ filteredData.forEach(item => {
       const data = response.data
       console.log('data: ', data._id);
     })
-    
+
     })
 })
 
