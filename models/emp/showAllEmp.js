@@ -1,5 +1,7 @@
+
 // showAllEmp.js
 const rul = 'http://localhost:3000/employees';
+
 
 
 async function getData() {
@@ -79,9 +81,21 @@ async function getData() {
         let deleteBtn = document.createElement("button");
         deleteBtn.innerText = "Delete";
 
+        // Test
+        axios.get(`http://localhost:3000/user`)
+        .then(function (response) {
+          const userIdEmp = response.data;
+          userIdEmp.forEach(function (userIdEmp) {
+            const idEmp = userIdEmp.idEmp;
+            console.log('idEmp: ', idEmp);
+            
+          });
+        })
       
 // function axios delete Emp
         deleteBtn.addEventListener("click", () => {
+
+        
 
           axios.delete(`http://localhost:3000/employees/${item._id}`)
             .then(function (response) {

@@ -76,6 +76,9 @@ app.get('/addnewdep', (req, res) => {
 app.get('/search', (req, res) => {
   res.render('search');
 });
+app.get('/add-shift-emp', (req, res) => {
+  res.render('add-shift-emp');
+});
 
 
 const server = http.createServer(app);
