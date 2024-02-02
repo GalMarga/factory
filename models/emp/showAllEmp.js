@@ -3,14 +3,12 @@
 // showAllEmp.js
 const rul = 'http://localhost:3000/employees';
 
-
-
 async function getData() {
   axios.get(rul)
     .then(function (response) {
       let data = response.data;
-      console.log(data);
-      console.table(data);
+      // console.log(data);
+      // console.table(data);
 // Table 
       let tbl = document.getElementById("tbl");
       tbl.innerText = ""; // reset 
@@ -75,7 +73,7 @@ async function getData() {
         let deleteBtn = document.createElement("button");
         deleteBtn.innerText = "Delete";
 
-        
+          
 
         // axios.get(`http://localhost:3000/user`)
         // .then(function (response) {
@@ -99,8 +97,31 @@ async function getData() {
             .catch(function (error) {
               console.log(error);
             });
+
+            axios.get(`http://localhost:3000/user`)
+            .then(function (response) {
+                const data = response.data;
+                // Find user with matching idEmp
+                const userToDelete = data.find(user => user.idEmp === item._id);
+                if (userToDelete) {
+                  // Delete the user
+                  axios.delete(`http://localhost:3000/user/${userToDelete._id}`)
+                    .then(function (response) {
+                      console.log("User Removed");
+                    })
+                    .catch(function (error) {
+                      console.log(error);
+                    });
+                }
+            })
         });
 
+        
+
+
+
+       
+          
         tdActions.append(editBtn, addShiftBtn, deleteBtn);
 
         let tr = document.createElement("tr");
