@@ -1,4 +1,5 @@
 
+
 // showAllEmp.js
 const rul = 'http://localhost:3000/employees';
 
@@ -82,15 +83,15 @@ async function getData() {
         deleteBtn.innerText = "Delete";
 
         // Test
-        axios.get(`http://localhost:3000/user`)
-        .then(function (response) {
-          const userIdEmp = response.data;
-          userIdEmp.forEach(function (userIdEmp) {
-            const idEmp = userIdEmp.idEmp;
-            console.log('idEmp: ', idEmp);
+        // axios.get(`http://localhost:3000/user`)
+        // .then(function (response) {
+        //   const userIdEmp = response.data;
+        //   userIdEmp.forEach(function (userIdEmp) {
+        //     const idEmp = userIdEmp.idEmp;
+        //     console.log('idEmp: ', idEmp);
             
-          });
-        })
+        //   });
+        // })
       
 // function axios delete Emp
         deleteBtn.addEventListener("click", () => {
@@ -545,6 +546,27 @@ filteredData.forEach(item => {
     });
 }
 
+ async function deleteAllemp() {
+
+  axios.get(`http://localhost:3000/employees`)
+.then(function (response) {
+    const data = response.data
+    console.log('data: ', data._id);
+
+    data.forEach(item => { 
+
+  console.log(item._id)
+
+  axios.delete(`http://localhost:3000/employees/${item._id}`)
+  .then(function (response) {
+      const data = response.data
+      console.log('data: ', data._id);
+    })
+    
+    })
+})
+
+ }
 
 
 
