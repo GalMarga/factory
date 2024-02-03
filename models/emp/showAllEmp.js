@@ -133,6 +133,7 @@ async function editEmp() {
   })
     .then((response) => {
       console.log('Data successfully updated:', response.data);
+      window.location.href = '/employeesPage'
       // Add any further handling of the response here
     })
     .catch((error) => {
