@@ -5,7 +5,7 @@ async function getData() {
   axios.get(rul)
     .then(function (response) {
       let data = response.data;
-      // console.log(data);
+      console.log('dataEmp: ', data);
       // console.table(data);
 // Table 
       let tbl = document.getElementById("tbl");
@@ -70,18 +70,6 @@ async function getData() {
        //
         let deleteBtn = document.createElement("button");
         deleteBtn.innerText = "Delete";
-
-          
-
-        // axios.get(`http://localhost:3000/user`)
-        // .then(function (response) {
-        //   const userIdEmp = response.data;
-        //   userIdEmp.forEach(function (userIdEmp) {
-        //     const idEmp = userIdEmp.idEmp;
-        //     console.log('idEmp: ', idEmp);
-            
-        //   });
-        // })
       
 // function axios delete Emp
         deleteBtn.addEventListener("click", () => {
@@ -114,12 +102,6 @@ async function getData() {
             })
         });
 
-        
-
-
-
-       
-          
         tdActions.append(editBtn, addShiftBtn, deleteBtn);
 
         let tr = document.createElement("tr");
@@ -133,7 +115,6 @@ async function getData() {
       // console.log(error);
     });
 }
-
 
 async function searchById() {
 
@@ -240,7 +221,6 @@ async function searchById() {
 
     });
 }
-
 
 async function searchByName() {
 
