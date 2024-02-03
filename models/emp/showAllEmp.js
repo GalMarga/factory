@@ -205,8 +205,6 @@ async function searchById() {
             .catch(function (error) {
               console.log(error);
             });
-
-            
         });
 
         tdActions.append(editBtn, addShiftBtn, deleteBtn);
