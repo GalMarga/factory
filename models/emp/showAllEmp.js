@@ -61,8 +61,8 @@ async function getData() {
         
         editBtn.innerText = "Edit";
         editBtn.onclick = function () {
-       let idForEdit = item._id;
-  window.location.href = `/editemp?id=${idForEdit}`;
+          let idForEdit = item._id;
+          window.location.href = `/editemp?id=${idForEdit}`;
 }
         //
         let addShiftBtn = document.createElement('button')
@@ -115,6 +115,33 @@ async function getData() {
       // console.log(error);
     });
 }
+
+async function editEmp() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const employeeId = urlParams.get('id');
+
+  const firstName = document.getElementById("EDLfirstName").value;
+  const lastName = document.getElementById("EDLlastName").value;
+  const numOfActions = document.getElementById("EDLnumOfActions").value;
+  const departmentID = document.getElementById("EDLdepartmentID").value;
+
+  axios.put(`http://localhost:3000/employees/${employeeId}`, {
+    firstName: firstName,
+    lastName: lastName,
+    numOfActions: numOfActions,
+    departmentID: departmentID
+  })
+    .then((response) => {
+      console.log('Data successfully updated:', response.data);
+      // Add any further handling of the response here
+    })
+    .catch((error) => {
+      console.error('Error updating data:', error);
+      // Add error handling here
+    });
+}
+
+
 
 async function searchById() {
 
