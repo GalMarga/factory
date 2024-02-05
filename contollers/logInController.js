@@ -9,7 +9,6 @@ router.get('/', (req, res) => {
 });
 
 
-
 router.post('/', bodyParser.urlencoded({ extended: false }),async (req, res) => {
     let username = req.body.username;
     let password = req.body.password;
