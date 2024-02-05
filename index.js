@@ -26,6 +26,7 @@ app.set('views', path.join(__dirname, 'views'))
 // app.use('/public', express.static('public'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public/js')));
+app.use(express.static(path.join(__dirname, 'models')));
 app.use(express.static(path.join(__dirname, 'models/emp')));
 app.use(express.static(path.join(__dirname, 'models/dep')));
 app.use(express.static(path.join(__dirname, 'models/user')));
