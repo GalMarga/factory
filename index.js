@@ -30,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'models')));
 app.use(express.static(path.join(__dirname, 'models/emp')));
 app.use(express.static(path.join(__dirname, 'models/dep')));
 app.use(express.static(path.join(__dirname, 'models/user')));
+app.use(express.static(path.join(__dirname, 'constollers')));
 
 
 
