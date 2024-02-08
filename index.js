@@ -73,6 +73,10 @@ app.get('/editemp', (req, res) => {
   res.render('editemp');
 });
 
+app.get('/editdep', (req, res) => {
+  res.render('editdep');
+});
+
 app.get('/addnewdep', (req, res) => {
   res.render('addNewDep');
 });
