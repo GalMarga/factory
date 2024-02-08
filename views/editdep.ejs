@@ -29,9 +29,10 @@
 
 </head>
 <style>
-    #inp {
-        color: black;
+    #inpDepName,
+    #depOpt {
 
+        color: black;
         border-color: brown;
 
     }
@@ -83,6 +84,12 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="/ShiftsPage">Shifts</a>
                                 </li>
+                                <li class="nav-item" onlo>
+                                    <a class="nav-link" href="/">Log Out</a>
+                                </li>
+                                <li class="nav-item" id="displayName">
+                                    <a class="nav-link">Hello "name"</a>
+                                </li>
                             </ul>
                         </div>
                     </nav>
@@ -94,7 +101,7 @@
         <!-- end header section -->
     </div>
 
-    <!-- POST -->
+    <!-- PUT -->
     <section class="contact_section layout_padding">
         <div class="container">
             <div class="heading_container">
@@ -102,27 +109,24 @@
                     Edit Department
                 </h2>
             </div>
-            <form id="myForm" action="/employees/:_id" method="PUT">
 
-                <!-- emp -->
 
-                <div>
-                    <input id="inp" name="name" type="text" placeholder="Name Department" />
-                </div>
+            <!-- emp -->
 
-                <div>
-                    <select name="Manager" id="depOpt">
-                        <option value="Gal Marga">Gal Marga</option>
-                        <option value="Branden Riddle">Branden Riddle </option>
-                        <option value="Johnnie Lane">Johnnie Lane</option>
-                    </select>
-                </div>
-                <div>
+            <div>
+                <input id="inpDepName" name="name" type="text" placeholder="Name Department" />
+            </div>
 
-                    <button id="updateBtn" type="submit">Update</button>
-
-                </div>
-            </form>
+            <div>
+                <select name="Manager" id="depOpt">
+                    <option value="Gal Marga">Gal Marga</option>
+                    <option value="Branden Riddle">Branden Riddle </option>
+                    <option value="Johnnie Lane">Johnnie Lane</option>
+                </select>
+            </div>
+            <div>
+                <button onclick="editDep()" id="updateBtn" type="submit">Update</button>
+            </div>
         </div>
 
         </div>
@@ -141,14 +145,10 @@
 
 
     <div>
-        <script>
 
-        </script>
-
-        <script src="./showAllEmp.js" type="text/javascript"></script>
-        <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
+        <script src="./putDep.js" type="text/javascript"></script>
 
     </div>
 </body>

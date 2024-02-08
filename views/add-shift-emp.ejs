@@ -28,6 +28,20 @@
     <link href="css/responsive.css" rel="stylesheet" />
 
 </head>
+<style>
+    #inp {
+        color: black;
+
+        border-color: brown;
+
+    }
+
+    .col-md-6 {
+        color: black;
+        background-color: rgb(21, 213, 213);
+
+    }
+</style>
 
 <body>
     <div class="hero_area">
@@ -61,13 +75,13 @@
                                             class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/employeesPage"> Employees</a>
+                                    <a class="nav-link" href="/employeespage"> Employees</a>
                                 </li>
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="/departmentsPage">Departments</a>
+                                    <a class="nav-link" href="/departmentspage">Departments</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/ShiftsPage">Shifts</a>
+                                    <a class="nav-link" href="/Shiftspage">Shifts</a>
                                 </li>
                                 <li class="nav-item" onlo>
                                     <a class="nav-link" href="/">Log Out</a>
@@ -80,22 +94,44 @@
                     </nav>
                 </div>
             </div>
+
+
         </header>
         <!-- end header section -->
     </div>
 
-    <!-- service section -->
-
-    <section class="service_section layout_padding">
-        <div class="container ">
-            <div class="heading_container heading_center">
-                <h2> Shifts </h2>
+    <!-- POST -->
+    <section class="contact_section layout_padding">
+        <div class="container">
+            <div class="heading_container">
+                <h2>
+                    Add Shift To Employee
+                </h2>
             </div>
+            <form id="myForm" action="/department" method="POST">
 
-            <!-- <div class="btn-box">
-      <a href="">
-        View More
-      </a> -->
+
+                <!-- <div>
+                    <input id="inp" name="idDep" type="text" placeholder="Department ID" />
+                </div> -->
+                <div>
+                    <input id="inp" name="name" type="text" placeholder="Name" />
+                </div>
+                <div>
+                    <select name="Manager" id="depOpt">
+                        <option value="Gal Marga">Gal Marga</option>
+                        <option value="Branden Riddle">Branden Riddle </option>
+                        <option value="Johnnie Lane">Johnnie Lane</option>
+                    </select>
+                </div>
+                <div>
+
+                    <button onclick="redirectToEmp()" type="submit">Add</button>
+
+                </div>
+            </form>
+        </div>
+
         </div>
         </div>
     </section>
@@ -109,18 +145,20 @@
             </p>
         </div>
     </footer>
-    <!-- footer section -->
+    <!-- Scripts -->
+    <script>
 
-    <!-- <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+        function redirectToPage() {
+            alert("click")
+            console.log("click Add")
+        }
+
     </script>
-    <script src="js/custom.js"></script>
+    <div>
+        <!-- Scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
- -->
-
+    </div>
 </body>
 
 </html>

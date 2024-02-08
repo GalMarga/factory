@@ -62,7 +62,8 @@ async function getData() {
         let editBtn = document.createElement("button");
         editBtn.innerText = "Edit";
         editBtn.onclick = function () {
-          window.location.href = '/editemp';
+          let idForEdit = item._id;
+          window.location.href = `/editdep?id=${idForEdit}`;
         }
 
         

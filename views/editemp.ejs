@@ -29,9 +29,12 @@
 
 </head>
 <style>
-    #inp {
-        color: black;
+    #EDLfirstName,
+    #EDLlastName,
+    #EDLdepartmentID,
+    #EDLnumOfActions {
 
+        color: black;
         border-color: brown;
 
     }
@@ -83,6 +86,12 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="/ShiftsPage">Shifts</a>
                                 </li>
+                                <li class="nav-item" onlo>
+                                    <a class="nav-link" href="/">Log Out</a>
+                                </li>
+                                <li class="nav-item" id="displayName">
+                                    <a class="nav-link">Hello "name"</a>
+                                </li>
                             </ul>
                         </div>
                     </nav>
@@ -102,43 +111,31 @@
                     Edit Employees
                 </h2>
             </div>
-            <form id="myForm" action="/employees/:_id" method="PUT">
 
-                <!-- emp -->
 
-                <div>
-                    <input id="inp" name="firstName" type="text" placeholder="First Name" />
-                </div>
-                <div>
-                    <input id="inp" name="lastName" type="text" placeholder="Last Name" />
-                </div>
-                <!-- user -->
-                <!-- <div>
-                    <input id="inp" name="userName" type="text" placeholder="User Name" />
-                </div> -->
-                <!-- <div>
-                    <input id="inp" name="password" type="text" placeholder="Password" />
-                </div> -->
-                <!-- emp -->
-                <!-- <div>
-                    <input id="inp" name="startYear" type="date" placeholder="Start Year" />
-                </div> -->
-                <div>
-                    <input id="inp" name="numOfActions" type="number" placeholder="Number Of Actions" />
-                </div>
-                <div>
-                    <select name="departmentID" id="depOpt">
-                        <option value="Production">Production</option>
-                        <option value="Quality">Quality</option>
-                        <option value="Maintenance">Maintenance</option>
-                    </select>
-                </div>
-                <div>
+            <!-- emp -->
+            <div>
+                <input id="EDLfirstName" type="text" placeholder="First Name" />
+            </div>
+            <div>
+                <input id="EDLlastName" name="lastName" type="text" placeholder="Last Name" />
+            </div>
+            <div>
+                <input id="EDLnumOfActions" name="numOfActions" type="number" placeholder="Number Of Actions" />
+            </div>
+            <div>
+                <select name="departmentID" id="EDLdepartmentID">
+                    <option value="Production">Production</option>
+                    <option value="Quality">Quality</option>
+                    <option value="Maintenance">Maintenance</option>
+                </select>
+            </div>
+            <div>
+                <button onclick="editEmp()"> Click</button>
 
-                    <button id="updateBtn" type="submit">Update</button>
 
-                </div>
-            </form>
+            </div>
+
         </div>
 
         </div>
@@ -157,15 +154,9 @@
 
 
     <div>
-        <script>
-
-        </script>
-
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="./showAllEmp.js" type="text/javascript"></script>
-        <!-- Scripts -->
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
-
+        <!-- <script src="./putEmp.js" type="text/javascript"></script> -->
     </div>
 </body>
 

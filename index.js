@@ -26,8 +26,11 @@ app.set('views', path.join(__dirname, 'views'))
 // app.use('/public', express.static('public'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public/js')));
+app.use(express.static(path.join(__dirname, 'models')));
 app.use(express.static(path.join(__dirname, 'models/emp')));
 app.use(express.static(path.join(__dirname, 'models/dep')));
+app.use(express.static(path.join(__dirname, 'models/user')));
+app.use(express.static(path.join(__dirname, 'constollers')));
 
 
 
@@ -70,11 +73,18 @@ app.get('/editemp', (req, res) => {
   res.render('editemp');
 });
 
+app.get('/editdep', (req, res) => {
+  res.render('editdep');
+});
+
 app.get('/addnewdep', (req, res) => {
   res.render('addNewDep');
 });
 app.get('/search', (req, res) => {
   res.render('search');
+});
+app.get('/add-shift-emp', (req, res) => {
+  res.render('add-shift-emp');
 });
 
 
