@@ -1,27 +1,28 @@
 // showAllDep.js
-const rul = 'http://localhost:3000/department';
-
+let departmentIDs = [];
 
 axios.get(`http://localhost:3000/employees`)
 .then(function (response) {
   let employeesData = response.data;
-  let departmentIDs = [];
 
   employeesData.forEach(function (employee) {
+
     departmentIDs.push(employee.departmentID);
+
   });
 
-  console.log('departmentIDs:', departmentIDs);
 })
 
+console.log('departmentIDs: ', departmentIDs);
 
+const rul = 'http://localhost:3000/department';
 
 async function getData() {
   axios.get(rul)
     .then(function (response) {
       let data = response.data;
-      console.log(data);
-      console.table(data);
+      // console.log(data);
+      // console.table(data);
 // Table 
       let tbl = document.getElementById("tbl");
       tbl.innerText = ""; // reset 
@@ -55,7 +56,7 @@ async function getData() {
 //put the value 
         
         tdName.innerText = item.name;
-        console.log('item.name;: ', item.name);
+        // console.log('item.name: ', item.name);
         tdManager.innerText = item.Manager;
 
 //Create BTN
@@ -66,15 +67,27 @@ async function getData() {
           window.location.href = `/editdep?id=${idForEdit}`;
         }
 
-        
-    
-
         let deleteBtn = document.createElement("button");
         deleteBtn.innerText = "Delete";
-        // deleteBtn.disabled = true;
-    
-      
-// function axios delete Emp
+        departmentIDs.forEach(item => {
+          console.log(item);
+
+           if ( item == item.name ) {
+          // deleteBtn.disabled = true;
+          console.log("if")
+        } else {
+          console.log("else")
+          // deleteBtn.disabled = false
+        }
+
+        })
+  
+        if ( item.name == "Production" ) {
+          deleteBtn.disabled = true;
+        } else {
+          deleteBtn.disabled = false
+        }
+        
         deleteBtn.addEventListener("click", () => {
 
           axios.delete(`http://localhost:3000/department/${item._id}`)
