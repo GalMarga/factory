@@ -1,27 +1,42 @@
 // showAllDep.js
-const rul = 'http://localhost:3000/department';
-
-
+let departmentIDs = [];
 axios.get(`http://localhost:3000/employees`)
 .then(function (response) {
   let employeesData = response.data;
-  let departmentIDs = [];
 
   employeesData.forEach(function (employee) {
+
     departmentIDs.push(employee.departmentID);
+
   });
 
-  console.log('departmentIDs:', departmentIDs);
 })
 
 
+let depName = [];
+axios.get(`http://localhost:3000/department`)
+.then(function (response) {
+  let employeesData = response.data;
+
+  employeesData.forEach(function (dep) {
+
+    depName.push(dep.name);
+
+  });
+
+})
+
+
+console.log('departmentIDs: ', departmentIDs);
+
+const rul = 'http://localhost:3000/department';
 
 async function getData() {
   axios.get(rul)
     .then(function (response) {
       let data = response.data;
       console.log(data);
-      console.table(data);
+      // console.table(data);
 // Table 
       let tbl = document.getElementById("tbl");
       tbl.innerText = ""; // reset 
@@ -46,16 +61,18 @@ async function getData() {
       trTitles.append(tdName, tdManager,tdActions);
       tbl.appendChild(trTitles);
 // data for each
+      let DepName =[]
       data.forEach(item => {
-    
+
         let tdName = document.createElement("td");
         let tdManager = document.createElement("td");
         let tdActions = document.createElement("td");
         
 //put the value 
-        
+ 
+
         tdName.innerText = item.name;
-        console.log('item.name;: ', item.name);
+     
         tdManager.innerText = item.Manager;
 
 //Create BTN
@@ -66,15 +83,22 @@ async function getData() {
           window.location.href = `/editdep?id=${idForEdit}`;
         }
 
-        
-    
-
         let deleteBtn = document.createElement("button");
         deleteBtn.innerText = "Delete";
-        // deleteBtn.disabled = true;
-    
-      
-// function axios delete Emp
+
+        let found = false;
+        departmentIDs.forEach(itemEmpDep => {
+          if (item.name === itemEmpDep) {
+            found = true;
+          }
+        });
+        
+        if (found) {
+          deleteBtn.disabled = true;
+        } else {
+          deleteBtn.disabled = false;
+        }
+ 
         deleteBtn.addEventListener("click", () => {
 
           axios.delete(`http://localhost:3000/department/${item._id}`)
@@ -102,6 +126,7 @@ async function getData() {
 
     
 }
+
 
 
 
