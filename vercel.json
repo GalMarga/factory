@@ -17,11 +17,7 @@
         "dest": "index.js"
 
       }
-    ],
-
-    "redirects": [
-      { "source": "/employeesPage", "destination": "/employeespage.ejs", "permanent": false }
-      
     ]
+
   }
 
