@@ -1,8 +1,7 @@
-
-
 let employeesName = document.getElementById("empShift")
 let departemntName = document.getElementById("depShift")
 let time = document.getElementById("time")
+
 
 async function getDataForShift()
 {
@@ -31,15 +30,14 @@ async function getDataForShift()
 async function addShift() {
 
   let setItemName = localStorage.getItem("nameSto")
-    console.log("🚀 ~ setItem:", setItemName)
+   
 
     let setItemDep = localStorage.getItem("depSto")
-    console.log("🚀 ~ setItem:", setItemDep)
-
+    
     let saveShiftname = localStorage.getItem("shiftName")
 
     let getTime = document.getElementById("time").innerHTML
-    console.log("🚀 ~ getTime:", getTime)
+    
     
     axios.post(`http://localhost:3000/shifts`,  {
       employeesName: setItemName , 
@@ -55,6 +53,7 @@ async function addShift() {
       console.log(error);
     });
 
+    window.location.href = '/shiftspage'
 
 
 }
@@ -66,9 +65,37 @@ async function getAllData () {
   .then(function (response) {
     let data = response.data;
     console.log('dataEmp: ', data);
-  })
+
+    data.forEach(item => {
+    
+      
+  let tbl = document.getElementById("tblShift")
+  let tr = document.createElement("tr")
+  //
+  let tdshift = document.createElement("td")
+  tdshift.innerHTML = item.shift
+
+  //
+  let tdName = document.createElement("td")
+  tdName.innerHTML = item.employeesName
+
+  //
+  let tdDep = document.createElement("td")
+  tdDep.innerHTML = item.departemntName
+
+    //
+    let tdTime = document.createElement("td")
+    tdTime.innerHTML = item.time
 
 
+
+tr.append(tdshift, tdName, tdDep, tdTime)
+tbl.appendChild(tr)
+})
+  
+
+
+});
 
 
   }
