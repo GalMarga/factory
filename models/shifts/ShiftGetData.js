@@ -93,11 +93,6 @@ async function getAllData () {
 tr.append(tdshift, tdName, tdDep, tdTime)
 tbl.appendChild(tr)
 })
-  
-
-
 });
-
-
   }
 
