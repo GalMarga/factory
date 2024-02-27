@@ -66,6 +66,7 @@ async function getAllData () {
     let data = response.data;
     console.log('dataEmp: ', data);
 
+
     data.forEach(item => {
     
       
@@ -100,4 +101,3 @@ tbl.appendChild(tr)
 
   }
 
-  getAllData ()
