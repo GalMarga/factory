@@ -66,8 +66,8 @@ app.get('/shiftspage', (req, res) => {
   res.render('shiftspage');
 });
 
-app.get('/addNewEmp', (req, res) => {
-  res.render('addNewEmp');
+app.get('/addnewemp', (req, res) => {
+  res.render('addnewemp');
 });
 
 app.get('/editemp', (req, res) => {
