@@ -3,11 +3,13 @@
 const mongoose = require('mongoose')
 
 const ShiftSchema = new mongoose.Schema({
-  idSft: String,
-  date: Date,
+  employeesName: String,
+  departemntName: String,
+  time: String,
+  shift: String,
   startTime: String,
   endTime: String,
-  NumOfActions: Number
+
 }, { versionKey: false });
 
 module.exports = mongoose.model('shifts', ShiftSchema, 'shifts');

@@ -21,7 +21,7 @@ router.get('/:id',async (req, res) => {
 router.post('/',async (req, res) => {
     let shift = req.body;
 
-    let data = await shiftBL.postUser(shift);
+    let data = await shiftBL.addShift(shift);
     
     return res.json(data);
 })

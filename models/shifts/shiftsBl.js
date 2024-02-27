@@ -35,7 +35,6 @@ const addShift = async (obj) => {
     }
       };
       
-
 module.exports = {
     getAll,
     getById,
