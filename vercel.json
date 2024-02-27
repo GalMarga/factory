@@ -18,9 +18,10 @@
 
       }
     ],
-    
+
     "redirects": [
       { "source": "/employeesPage", "destination": "/employeespage.ejs", "permanent": false }
+      
     ]
   }
 
