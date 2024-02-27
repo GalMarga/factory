@@ -57,6 +57,7 @@ async function getData() {
         tdStartYear.innerText = item.startYear;
         tdDep.innerText = item.departmentID;
 //Create BTN
+
         let editBtn = document.createElement("button");
         
         editBtn.innerText = "Edit";

@@ -29,7 +29,54 @@
 
 </head>
 
-<body>
+<style>
+    #content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    table {
+        width: 800px;
+        text-align: center;
+    }
+
+    button {
+        width: 5%;
+        text-align: center;
+        margin-bottom: 1%;
+        inline-size: auto;
+    }
+
+    .th {
+
+        background-color: rgb(132, 132, 132);
+    }
+
+    #tableLine {
+
+        background-color: darkgray;
+
+    }
+    #morning {
+
+        background-color: gold;
+    }
+
+    #noon {
+        background-color: rgb(0, 195, 255);
+    }
+
+    #night {
+        background-color: rgb(147, 102, 221);
+    }
+
+
+
+
+</style>
+
+<body onload="getDataForShift()">
     <div class="hero_area">
         <!-- header section strats -->
         <header class="header_section">
@@ -45,9 +92,9 @@
                         <a class="navbar-brand" href="/deshboard">
                             <span>
                                 Factory
+
                             </span>
                         </a>
-
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
@@ -89,18 +136,86 @@
     <section class="service_section layout_padding">
         <div class="container ">
             <div class="heading_container heading_center">
-                <h2> Shifts </h2>
+                <h2> Employees </h2>
             </div>
 
-            <!-- <div class="btn-box">
-      <a href="">
-        View More
-      </a> -->
+            <a href="./search">
+                <button> Search </button>
+            </a>
+            <a href="/addnewemp">
+                <button> Add Employees </button>
+            </a>
+            <div id="content" id="table-container">
+                <table id="tbl" border="1">
+                    <tr>
+                    <td id="tableLine"> Shift </td>
+                    <td id="tableLine"> Employees </td>
+                    <td id="tableLine"> Departments </td>
+                    <td id="tableLine">  Time </td>
+                    </tr>
+
+                    <tr>
+                        <td id="morning">Morning</td>
+                        <td>
+                            <select name="" id="">
+
+                            </select>
+                        </td>
+                        <td>Empty</td>
+                        <td>7:00 - 16:00</td>
+                    </tr>
+
+                    <tr>
+                        <td id="morning">Morning</td>
+                        <td>Empty</td>
+                        <td>Empty</td>
+                        <td>7:00 - 16:00</td>
+                    </tr>
+
+                    <tr>
+                        <td id="morning">Morning</td>
+                        <td>Empty</td>
+                        <td>Empty</td>
+                        <td>7:00 - 16:00</td>
+                    </tr>
+
+                    <tr>
+                        <td id="noon">Noon</td>
+                        <td>Empty</td>
+                        <td>Empty</td>
+                        <td>16:00 - 23:00</td>
+                    </tr>
+
+                    <tr>
+                        <td id="noon">Noon</td>
+                        <td>Empty</td>
+                        <td>Empty</td>
+                        <td>16:00 - 23:00</td>
+                    </tr>
+
+                    <tr>
+                        <td id="night">Night</td>
+                        <td>Empty</td>
+                        <td>Empty</td>
+                        <td>23:00 - 7:00</td>
+                    </tr>
+        
+                    <tr>
+                        <td id="night">Night</td>
+                        <td>Empty</td>
+                        <td>Empty</td>
+                        <td>23:00 - 7:00</td>
+                    </tr>
+                     
+
+
+                </table>
+            </div>
+        </div>
         </div>
         </div>
     </section>
 
-    <!-- footer section -->
     <footer class="footer_section">
         <div class="container">
             <p>
@@ -109,18 +224,11 @@
             </p>
         </div>
     </footer>
-    <!-- footer section -->
 
-    <!-- <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
-    </script>
-    <script src="js/custom.js"></script>
-
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
- -->
-
+    <div id="Sctips">
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+ 
+        <script src="./ShiftGetData.js" type="text/javascript"></script>
 </body>
 
 </html>
