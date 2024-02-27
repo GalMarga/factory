@@ -3,18 +3,24 @@ const Shifts = require('./shiftsSchema');
 const getAll = async () => {
     const shiftsAll = await Shifts.find({})
     return shiftsAll;
-};
+}
 
 const getById = async (id) => {
     try {
 
         const shift = await Shifts.findById(id);
+
+       
+
         return shift;
   
       } catch (error) {
         console.error(error);
        
       }
+
+       
+
 };
 
 const addShift = async (obj) => {
@@ -29,7 +35,6 @@ const addShift = async (obj) => {
     }
       };
       
-
 module.exports = {
     getAll,
     getById,

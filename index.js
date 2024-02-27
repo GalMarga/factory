@@ -31,6 +31,7 @@ app.use(express.static(path.join(__dirname, 'models/emp')));
 app.use(express.static(path.join(__dirname, 'models/dep')));
 app.use(express.static(path.join(__dirname, 'models/user')));
 app.use(express.static(path.join(__dirname, 'constollers')));
+app.use(express.static(path.join(__dirname, 'models/shifts')));
 
 
 
@@ -87,6 +88,9 @@ app.get('/add-shift-emp', (req, res) => {
   res.render('add-shift-emp');
 });
 
+app.get('/addshift', (req, res) => {
+  res.render('addshift');
+});
 
 const server = http.createServer(app);
 server.listen(portListen)
