@@ -88,6 +88,9 @@ app.get('/add-shift-emp', (req, res) => {
   res.render('add-shift-emp');
 });
 
+app.get('/addshift', (req, res) => {
+  res.render('addshift');
+});
 
 const server = http.createServer(app);
 server.listen(portListen)

@@ -68,9 +68,15 @@ async function getData() {
         //
         let addShiftBtn = document.createElement('button')
         addShiftBtn.innerText = 'Add Shift'
+        addShiftBtn.onclick = function() {
+       let idForShift = item._id;
+       window.location.href = `/addshift?id=${idForShift}`
+
+        }
        //
         let deleteBtn = document.createElement("button");
         deleteBtn.innerText = "Delete";
+
       
 // function axios delete Emp
         deleteBtn.addEventListener("click", () => {

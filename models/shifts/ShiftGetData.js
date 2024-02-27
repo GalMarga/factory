@@ -1,31 +1,21 @@
 
-
 const rul = 'http://localhost:3000/employees';
+
+let employeesName = document.getElementById("empShift")
+let departemntName = document.getElementById("depShift")
 
 async function getDataForShift()
 {
 
-    axios.get(rul)
-    .then(function (response) {
-      let data = response.data;
-
-     
+  const urlParams = new URLSearchParams(window.location.search);
+  const employeeId = urlParams.get('id');
 
 
-    data.forEach(item => {
-
-     
-        console.log("🚀 ~ file: ShiftGetData.js:22 ~ item.firstName:", item.firstName);
-
-
-    
-    });
-
-       
-
-        
-
-    
-
-    })
+  axios.get(`http://localhost:3000/employees/${employeeId}`)
+  .then(function (response) {
+    let data = response.data
+    employeesName.innerHTML = data.firstName + " " + data.lastName
+    departemntName.innerHTML = data.departmentID
+  })
+ 
 }

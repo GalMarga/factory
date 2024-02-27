@@ -138,10 +138,9 @@
             <div class="heading_container heading_center">
                 <h2> Shifts </h2>
             </div>
-
-      
-            <button> Add shift </button>
-           
+            
+            </a>
+          
             <div id="content" id="table-container">
                 <table id="tbl" border="1">
                     <tr>
@@ -152,27 +151,30 @@
                     </tr>
 
                     <tr>
+
                         <td id="morning">
-                            <select name="" id="">
-                                <option value=""> Morning </option>
-                                <option value=""> Noon </option>
-                                <option value=""> Night </option>
+                            <select name="" id="" onchange="selectFunction(this.value)">
+                                <option value="morning"> Morning </option>
+                                <option value="evening"> Evening </option>
+                                <option value="night"> Night </option>
                             </select>
 
-
                         </td>
-                        <td>
-                            <select name="" id="">
+             
+                        <td id="empShift"> </td>
 
-                            </select>
-                        </td>
-                        <td></td>
-                        <td>7:00 - 16:00</td>
+                        <td id="depShift"> </td>
+
+                        <td  id="time"> 07:00 - 15:00 </td>
+
+
                     </tr>
 
-        
 
                 </table>
+
+                <button style="margin: 20px;"> Add shift </button>
+
             </div>
         </div>
         </div>
@@ -190,8 +192,8 @@
 
     <div id="Sctips">
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
- 
         <script src="./ShiftGetData.js" type="text/javascript"></script>
+        <script src="./time.js" type="text/javascript"></script>
 </body>
 
 </html>
