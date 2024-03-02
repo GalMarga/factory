@@ -62,6 +62,11 @@ async function getData() {
         
         editBtn.innerText = "Edit";
         editBtn.onclick = function () {
+
+          let empFirstNameSto = localStorage.setItem("EmpFName", item.firstName )
+          let empLastNameSto = localStorage.setItem("EmpLName", item.lastName )
+ 
+
           let idForEdit = item._id;
           window.location.href = `/editemp?id=${idForEdit}`;
 }
@@ -123,19 +128,41 @@ async function getData() {
     });
 }
 
+
+
+function editEmpShowData() {
+
+
+  let getEmpFirstNameSto = localStorage.getItem("EmpFName")
+  let getEmpLastNameSto = localStorage.getItem("EmpLName")
+
+  console.log(getEmpFirstNameSto)
+  console.log(getEmpLastNameSto)
+
+  document.getElementById("EDLfirstName").value = getEmpFirstNameSto
+document.getElementById("EDLlastName").value = getEmpLastNameSto
+
+
+
+
+  const departmentID = document.getElementById("EDLdepartmentID").value;
+
+}
+
+
 async function editEmp() {
   const urlParams = new URLSearchParams(window.location.search);
   const employeeId = urlParams.get('id');
 
   const firstName = document.getElementById("EDLfirstName").value;
   const lastName = document.getElementById("EDLlastName").value;
-  const numOfActions = document.getElementById("EDLnumOfActions").value;
+  // const numOfActions = document.getElementById("EDLnumOfActions").value;
   const departmentID = document.getElementById("EDLdepartmentID").value;
 
   axios.put(`http://localhost:3000/employees/${employeeId}`, {
     firstName: firstName,
     lastName: lastName,
-    numOfActions: numOfActions,
+    // numOfActions: numOfActions,
     departmentID: departmentID
   })
     .then((response) => {
