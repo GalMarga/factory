@@ -149,8 +149,6 @@ async function editEmp() {
     });
 }
 
-
-
 async function searchById() {
 
   let inpId = document.getElementById("inpId").value;

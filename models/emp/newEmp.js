@@ -16,10 +16,7 @@ function getDepName() {
         createOpt.value = item.name
 
         depSelect.appendChild(createOpt)
-        
-      
-
-
+    
     });
    })
 }

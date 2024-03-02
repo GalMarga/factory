@@ -28,6 +28,8 @@ app.use(express.static(path.join(__dirname, 'models/dep')));
 app.use(express.static(path.join(__dirname, 'models/user')));
 app.use(express.static(path.join(__dirname, 'constollers')));
 app.use(express.static(path.join(__dirname, 'models/shifts')));
+app.use(express.static(path.join(__dirname, 'contollers')));
+
 
 app.use(express.static('js'));
 app.set('view engine', 'ejs');
