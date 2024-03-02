@@ -11,16 +11,12 @@ const http = require('http')
 const path = require('path')
 const bodyParser = require('body-parser');
 
-// const show = require('./models/emp')
-
-
 const portListen = process.env.PORT || 3000;
 
 require('./configs/connectDB')
 
 const app = express();
 const loginRouter = require('./contollers/logInController')
-
 
 app.set('views', path.join(__dirname, 'views'))
 // app.use('/public', express.static('public'));
@@ -33,22 +29,17 @@ app.use(express.static(path.join(__dirname, 'models/user')));
 app.use(express.static(path.join(__dirname, 'constollers')));
 app.use(express.static(path.join(__dirname, 'models/shifts')));
 
-
-
 app.use(express.static('js'));
 app.set('view engine', 'ejs');
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-
 app.use('/user', userController)
 app.use('/employees', empController)
 app.use('/department', depController)
 app.use('/shifts', shiftsController)
 app.use('/', loginRouter) 
-// app.use('/addNewEmp', empController) 
-
 
 app.get('/deshboard', (req, res) => { 
     res.render('deshboard');
