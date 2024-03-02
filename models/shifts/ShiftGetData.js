@@ -18,9 +18,12 @@ async function getDataForShift()
 
     let name = data.firstName + " " + data.lastName
     let dep = data.departmentID
+    let idEmp = data._id
 
     let nameStorge = localStorage.setItem( "nameSto" , name)
     let depStorge = localStorage.setItem( "depSto" , dep)
+    let idEmpStorge = localStorage.setItem( "idEmpSto" , idEmp)
+
 
   })
  
@@ -29,10 +32,10 @@ async function getDataForShift()
 
 async function addShift() {
 
-  let setItemName = localStorage.getItem("nameSto")
+    let setItemName = localStorage.getItem("nameSto")
    
-
     let setItemDep = localStorage.getItem("depSto")
+    let setIdEmp = localStorage.getItem("idEmpSto")
     
     let saveShiftname = localStorage.getItem("shiftName")
 
@@ -43,7 +46,8 @@ async function addShift() {
       employeesName: setItemName , 
       departemntName:  setItemDep,
       shift: saveShiftname,
-      time : getTime
+      time : getTime,
+      idEmp: setIdEmp
 
     })
     .then(function (response) {

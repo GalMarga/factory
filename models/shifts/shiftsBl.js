@@ -34,9 +34,16 @@ const addShift = async (obj) => {
     
     }
       };
+
+      const deleteShift = async (id) => {
+        await Shifts.findByIdAndDelete(id)
+    
+        return 'Deleted';
+    };
       
 module.exports = {
     getAll,
     getById,
     addShift,
+    deleteShift
 };

@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const ShiftSchema = new mongoose.Schema({
   employeesName: String,
   departemntName: String,
+  idEmp: String,
   time: String,
   shift: String,
   startTime: String,

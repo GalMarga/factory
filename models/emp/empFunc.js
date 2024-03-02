@@ -112,6 +112,25 @@ async function getData() {
                     });
                 }
             })
+
+            axios.get(`http://localhost:3000/shifts`)
+            .then(function (response) {
+                const dataShift = response.data;
+                // Find user with matching idEmp
+                const shiftToDelete = dataShift.find(shift => shift.idEmp === item._id);
+                if (shiftToDelete) {
+                  // Delete the user
+                  axios.delete(`http://localhost:3000/shifts/${shiftToDelete._id}`)
+                    .then(function (response) {
+                      console.log("Shift Removed");
+                    })
+                    .catch(function (error) {
+                      console.log(error);
+                    });
+                }
+            })
+
+
         });
 
         tdActions.append(editBtn, addShiftBtn, deleteBtn);
