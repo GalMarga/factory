@@ -92,9 +92,26 @@ async function getAllData () {
     let tdTime = document.createElement("td")
     tdTime.innerHTML = item.time
 
+    let delBtn = document.createElement("button");
+        
+    delBtn.innerText = "Delete Shift";
+
+    delBtn.addEventListener("click", () => {
+
+      axios.delete(`http://localhost:3000/shifts/${item._id}`)
+        .then(function (response) {
+         console.log("Shift Removed");
+          tr.remove();
+    
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+
+      });
 
 
-tr.append(tdshift, tdName, tdDep, tdTime)
+tr.append(tdshift, tdName, tdDep, tdTime,delBtn)
 tbl.appendChild(tr)
 })
 });

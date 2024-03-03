@@ -19,5 +19,3 @@ async function deleteAllShifts() {
     window.location.href = "/ShiftsPage"
 })};
 
-
-

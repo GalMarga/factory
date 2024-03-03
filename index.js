@@ -1,11 +1,13 @@
 // index.js
 const express = require('express');
 const cors = require('cors');
+require('./configs/connectDB')
 const userController = require('./contollers/userController')
 const empController = require('./contollers/empController')
 const depController = require('./contollers/depController')
 const shiftsController = require('./contollers/shiftsController')
 const addNewEmp = require('./contollers/shiftsController')
+const loginRouter = require('./contollers/logInController')
 
 const http = require('http')
 const path = require('path')
@@ -13,13 +15,9 @@ const bodyParser = require('body-parser');
 
 const portListen = process.env.PORT || 3000;
 
-require('./configs/connectDB')
-
 const app = express();
-const loginRouter = require('./contollers/logInController')
 
 app.set('views', path.join(__dirname, 'views'))
-// app.use('/public', express.static('public'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public/js')));
 app.use(express.static(path.join(__dirname, 'models')));
@@ -29,7 +27,6 @@ app.use(express.static(path.join(__dirname, 'models/user')));
 app.use(express.static(path.join(__dirname, 'constollers')));
 app.use(express.static(path.join(__dirname, 'models/shifts')));
 app.use(express.static(path.join(__dirname, 'contollers')));
-
 
 app.use(express.static('js'));
 app.set('view engine', 'ejs');
