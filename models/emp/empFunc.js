@@ -1,6 +1,7 @@
 // showAllEmp.js
 const rul = 'http://localhost:3000/employees';
 
+
 async function getData() {
   axios.get(rul)
     .then(function (response) {
@@ -62,6 +63,11 @@ async function getData() {
         
         editBtn.innerText = "Edit";
         editBtn.onclick = function () {
+
+          let empFirstNameSto = localStorage.setItem("EmpFName", item.firstName )
+          let empLastNameSto = localStorage.setItem("EmpLName", item.lastName )
+ 
+
           let idForEdit = item._id;
           window.location.href = `/editemp?id=${idForEdit}`;
 }
@@ -107,6 +113,25 @@ async function getData() {
                     });
                 }
             })
+
+            axios.get(`http://localhost:3000/shifts`)
+            .then(function (response) {
+                const dataShift = response.data;
+                // Find user with matching idEmp
+                const shiftToDelete = dataShift.find(shift => shift.idEmp === item._id);
+                if (shiftToDelete) {
+                  // Delete the user
+                  axios.delete(`http://localhost:3000/shifts/${shiftToDelete._id}`)
+                    .then(function (response) {
+                      console.log("Shift Removed");
+                    })
+                    .catch(function (error) {
+                      console.log(error);
+                    });
+                }
+            })
+
+
         });
 
         tdActions.append(editBtn, addShiftBtn, deleteBtn);
@@ -123,33 +148,49 @@ async function getData() {
     });
 }
 
+function editEmpShowData() {
+
+
+  let getEmpFirstNameSto = localStorage.getItem("EmpFName")
+  let getEmpLastNameSto = localStorage.getItem("EmpLName")
+
+  console.log(getEmpFirstNameSto)
+  console.log(getEmpLastNameSto)
+
+  document.getElementById("EDLfirstName").value = getEmpFirstNameSto
+document.getElementById("EDLlastName").value = getEmpLastNameSto
+
+  const departmentID = document.getElementById("EDLdepartmentID").value;
+
+  getDepName()
+  
+}
+
 async function editEmp() {
   const urlParams = new URLSearchParams(window.location.search);
   const employeeId = urlParams.get('id');
 
   const firstName = document.getElementById("EDLfirstName").value;
   const lastName = document.getElementById("EDLlastName").value;
-  const numOfActions = document.getElementById("EDLnumOfActions").value;
+  // const numOfActions = document.getElementById("EDLnumOfActions").value;
   const departmentID = document.getElementById("EDLdepartmentID").value;
 
   axios.put(`http://localhost:3000/employees/${employeeId}`, {
     firstName: firstName,
     lastName: lastName,
-    numOfActions: numOfActions,
+    // numOfActions: numOfActions,
     departmentID: departmentID
   })
     .then((response) => {
       console.log('Data successfully updated:', response.data);
       window.location.href = '/employeesPage'
-      // Add any further handling of the response here
+   
     })
     .catch((error) => {
       console.error('Error updating data:', error);
-      // Add error handling here
+
     });
 }
-
-
 
 async function searchById() {
 
@@ -592,5 +633,20 @@ filteredData.forEach(item => {
 
  }
 
+function getDepName() {
+  const ruldep = 'http://localhost:3000/department';
+  axios.get(ruldep)
+    .then(function(response) {
+      let data = response.data;
 
+      const depSelect = document.getElementById("EDLdepartmentID");
+      data.forEach(item => {
+        console.log(item.name);
+        let createOpt = document.createElement("option");
+        createOpt.innerHTML = item.name;
+        createOpt.value = item.name;
 
+        depSelect.appendChild(createOpt);
+      });
+    });
+}

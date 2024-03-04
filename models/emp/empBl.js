@@ -1,6 +1,7 @@
 const Emp = require('./empSchema');
 const User = require('../user/userSchema');
 
+
 const getAll =  async () => {
     const employees = await Emp.find({})
     return employees;

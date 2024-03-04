@@ -26,19 +26,19 @@ router.post('/',async (req, res) => {
     return res.json(data);
 })
 
-// router.put('/:id',async (req, res) => {
-//     let id = req.params.id;
-//     let user = req.body;
+router.put('/:id',async (req, res) => {
+    let id = req.params.id;
+    let user = req.body;
 
-//     await shiftBL.putUser(id, user)
-//     return res.json("the update successful");
-// })
+    await shiftBL.putUser(id, user)
+    return res.json("the update successful");
+})
 
-// router.delete('/:id',async (req, res) => {
-//     let id = req.params.id;
+router.delete('/:id',async (req, res) => {
+    let id = req.params.id;
 
-//     await shiftBL.deleteUser(id)
-//     return res.json("the user was been deleted")
-// })
+    await shiftBL.deleteShift(id)
+    return res.json("the user was been deleted")
+})
 
 module.exports = router;

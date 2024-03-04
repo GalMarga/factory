@@ -1,7 +1,5 @@
 const Users = require('./userSchema');    
 
-
-
 const getAll =  async () => {
     const users = await Users.find({})
     return users;
