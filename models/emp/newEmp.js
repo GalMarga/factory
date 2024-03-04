@@ -1,5 +1,4 @@
 
-
 const rul = 'http://localhost:3000/department';
 
 function getDepName() {

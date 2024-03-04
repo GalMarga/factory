@@ -15,10 +15,10 @@ async function editDep() {
     .then((response) => {
       console.log('Data successfully updated:', response.data);
       window.location.href = '/departmentspage'
-      // Add any further handling of the response here
+
     })
     .catch((error) => {
       console.error('Error updating data:', error);
-      // Add error handling here
+    
     });
 }

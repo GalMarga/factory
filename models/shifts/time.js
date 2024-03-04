@@ -6,7 +6,6 @@ function morning() {
     let morning = "Morning"
 
     let saveShiftname = localStorage.setItem("shiftName" , morning )
-
 }
 
 function evening() {

@@ -148,8 +148,6 @@ async function getData() {
     });
 }
 
-
-
 function editEmpShowData() {
 
 
@@ -167,7 +165,6 @@ document.getElementById("EDLlastName").value = getEmpLastNameSto
   getDepName()
   
 }
-
 
 async function editEmp() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -635,9 +632,6 @@ filteredData.forEach(item => {
 })
 
  }
-
-
-
 
 function getDepName() {
   const ruldep = 'http://localhost:3000/department';

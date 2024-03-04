@@ -9,17 +9,13 @@ const getById = async (id) => {
     try {
 
         const shift = await Shifts.findById(id);
-
-       
-
+        
         return shift;
   
       } catch (error) {
         console.error(error);
        
-      }
-
-       
+      }  
 
 };
 
