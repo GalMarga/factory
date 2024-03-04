@@ -1,6 +1,7 @@
 // showAllEmp.js
 const rul = 'http://localhost:3000/employees';
 
+
 async function getData() {
   axios.get(rul)
     .then(function (response) {
@@ -161,11 +162,10 @@ function editEmpShowData() {
   document.getElementById("EDLfirstName").value = getEmpFirstNameSto
 document.getElementById("EDLlastName").value = getEmpLastNameSto
 
-
-
-
   const departmentID = document.getElementById("EDLdepartmentID").value;
 
+  getDepName()
+  
 }
 
 
@@ -187,11 +187,11 @@ async function editEmp() {
     .then((response) => {
       console.log('Data successfully updated:', response.data);
       window.location.href = '/employeesPage'
-      // Add any further handling of the response here
+   
     })
     .catch((error) => {
       console.error('Error updating data:', error);
-      // Add error handling here
+
     });
 }
 
@@ -638,3 +638,21 @@ filteredData.forEach(item => {
 
 
 
+
+function getDepName() {
+  const ruldep = 'http://localhost:3000/department';
+  axios.get(ruldep)
+    .then(function(response) {
+      let data = response.data;
+
+      const depSelect = document.getElementById("EDLdepartmentID");
+      data.forEach(item => {
+        console.log(item.name);
+        let createOpt = document.createElement("option");
+        createOpt.innerHTML = item.name;
+        createOpt.value = item.name;
+
+        depSelect.appendChild(createOpt);
+      });
+    });
+}
