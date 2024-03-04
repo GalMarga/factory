@@ -73,7 +73,7 @@ async function getAllData () {
 
     data.forEach(item => {
     
-      
+     
   let tbl = document.getElementById("tblShift")
   let tr = document.createElement("tr")
   //
@@ -81,8 +81,13 @@ async function getAllData () {
   tdshift.innerHTML = item.shift
 
   //
-  let tdName = document.createElement("td")
-  tdName.innerHTML = item.employeesName
+  let tdName = document.createElement("td");
+  let anchor = document.createElement("a");
+  
+  anchor.href = `/editemp?id=${item.idEmp}` ;
+  anchor.innerHTML = item.employeesName;
+  
+  tdName.appendChild(anchor);
 
   //
   let tdDep = document.createElement("td")
