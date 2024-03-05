@@ -611,9 +611,9 @@ filteredData.forEach(item => {
     });
 }
 
- async function deleteAllemp() {
+  function deleteAllemp() {
 
-  await axios.get(`http://localhost:3000/employees`)
+  axios.get(`http://localhost:3000/employees`)
 .then(function (response) {
     const data = response.data
     console.log('data: ', data._id);
