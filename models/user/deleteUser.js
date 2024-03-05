@@ -1,4 +1,4 @@
-async function deleteAllUser() {
+function deleteAllUser() {
 
   axios.get(`http://localhost:3000/user`)
 .then(function (response) {
@@ -18,7 +18,7 @@ async function deleteAllUser() {
 })};
 
 
- async function printAllUser() {
+function printAllUser() {
 
   axios.get(`http://localhost:3000/user`)
 .then(function (response) {

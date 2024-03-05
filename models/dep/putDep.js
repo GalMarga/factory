@@ -7,7 +7,7 @@ async function editDep() {
   const NewManager = document.getElementById("depOpt").value;
 
 
-  axios.put(`http://localhost:3000/department/${depId}`, {
+  await axios.put(`http://localhost:3000/department/${depId}`, {
     name: newDepName,
     Manager: NewManager,
   

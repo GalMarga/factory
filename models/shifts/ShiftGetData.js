@@ -10,7 +10,7 @@ async function getDataForShift()
   const employeeId = urlParams.get('id');
 
 
-  axios.get(`http://localhost:3000/employees/${employeeId}`)
+  await axios.get(`http://localhost:3000/employees/${employeeId}`)
   .then(function (response) {
     let data = response.data
     employeesName.innerHTML = data.firstName + " " + data.lastName
@@ -42,7 +42,7 @@ async function addShift() {
     let getTime = document.getElementById("time").innerHTML
     
     
-    axios.post(`http://localhost:3000/shifts`,  {
+    await axios.post(`http://localhost:3000/shifts`,  {
       employeesName: setItemName , 
       departemntName:  setItemDep,
       shift: saveShiftname,
@@ -65,7 +65,7 @@ async function addShift() {
 
 async function getAllData () {
 
-  axios.get("http://localhost:3000/shifts") 
+  await axios.get("http://localhost:3000/shifts") 
   .then(function (response) {
     let data = response.data;
     console.log('dataEmp: ', data);

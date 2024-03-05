@@ -1,8 +1,8 @@
 
 const rul = 'http://localhost:3000/department';
 
-function getDepName() {
-   axios.get(rul)
+async function getDepName() {
+    await axios.get(rul)
    .then( function(response) {
     let data = response.data 
     

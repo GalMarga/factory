@@ -1,6 +1,6 @@
 async function deleteAllShifts() {
 
-  axios.get(`http://localhost:3000/shifts`)
+  await axios.get(`http://localhost:3000/shifts`)
 .then(function (response) {
     const data = response.data
     console.log('data: ', data._id);

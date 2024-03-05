@@ -3,7 +3,7 @@ const rul = 'http://localhost:3000/employees';
 
 
 async function getData() {
-  axios.get(rul)
+  await axios.get(rul)
     .then(function (response) {
       let data = response.data;
       console.log('dataEmp: ', data);
@@ -114,7 +114,7 @@ async function getData() {
                 }
             })
 
-            axios.get(`http://localhost:3000/shifts`)
+             axios.get(`http://localhost:3000/shifts`)
             .then(function (response) {
                 const dataShift = response.data;
                 // Find user with matching idEmp
@@ -148,7 +148,7 @@ async function getData() {
     });
 }
 
-function editEmpShowData() {
+async function editEmpShowData() {
 
 
   let getEmpFirstNameSto = localStorage.getItem("EmpFName")
@@ -175,7 +175,7 @@ async function editEmp() {
   // const numOfActions = document.getElementById("EDLnumOfActions").value;
   const departmentID = document.getElementById("EDLdepartmentID").value;
 
-  axios.put(`http://localhost:3000/employees/${employeeId}`, {
+  await axios.put(`http://localhost:3000/employees/${employeeId}`, {
     firstName: firstName,
     lastName: lastName,
     // numOfActions: numOfActions,
@@ -197,7 +197,7 @@ async function searchById() {
   let inpId = document.getElementById("inpId").value;
   document.getElementById("inpId").value = ""
 
-    let axiosData = axios.get(`http://localhost:3000/employees/${inpId}`)
+    let axiosData = await axios.get(`http://localhost:3000/employees/${inpId}`)
     .then(function (response) {
       let data = [response.data]
       console.log(data);
@@ -613,7 +613,7 @@ filteredData.forEach(item => {
 
  async function deleteAllemp() {
 
-  axios.get(`http://localhost:3000/employees`)
+  await axios.get(`http://localhost:3000/employees`)
 .then(function (response) {
     const data = response.data
     console.log('data: ', data._id);
@@ -633,9 +633,9 @@ filteredData.forEach(item => {
 
  }
 
-function getDepName() {
+async function getDepName() {
   const ruldep = 'http://localhost:3000/department';
-  axios.get(ruldep)
+  await axios.get(ruldep)
     .then(function(response) {
       let data = response.data;
 
